@@ -1,0 +1,38 @@
+<!--
+ * @Autor: ErioY
+ * @Date: 2019-08-27 20:07:44
+ * @Email: 1973545559@qq.com
+ * @Github: https://github.com/ErioY
+ * @LastEditors: ErioY
+ * @LastEditTime: 2019-08-28 19:33:07
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>彩虹字</title>
+    <script>
+    // 设置几个颜色（红、黄、蓝、绿、黑），在输入框中输入文字，点击按钮后在p标签中生成背景颜色不同的文字
+    window.onload = function() {
+        var oInput = document.getElementsByTagName("input")[0];
+        var oBtn = document.getElementsByTagName("button")[0];
+        var oP = document.getElementsByTagName("p")[0];
+        var arr = ["red","orange","yellow","green","blue","pink"];
+        oBtn.onclick = function() {
+            oP.innerHTML = "<span>" + oInput.value.split("").join("</span><span>") + "</span>";
+            var aSp = document.getElementsByTagName("span");
+            for (var i = 0; i < aSp.length; i++) {
+                    aSp[i].style.color = arr[i % arr.length];
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <input type="text">
+    <button>生成</button>
+    <p></p>
+</body>
+</html>
